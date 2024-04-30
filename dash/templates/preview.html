@@ -1,0 +1,75 @@
+{% extends 'base_dash.html' %}
+{% load static %}
+
+{% block head %}
+  <script src="{% static 'js/preview.js' %}"></script>
+  <title>Magma - Gerar Certificado</title>
+{% endblock %}
+
+{% block body %}
+  <div>
+    <h3>Registrar Novo Certificado</h3>
+    <hr>
+    <br>
+    <div class="bs-stepper">
+      <div class="bs-stepper-header" role="tablist">
+        <!-- your steps here -->
+        <div class="step" data-target="#datas-part">
+          <button type="button" class="step-trigger" role="tab" aria-controls="datas-part" id="datas-part-trigger">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label">Preencher Dados</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#certificado-part">
+          <button type="button" class="step-trigger" role="tab" aria-controls="certificado-part" id="certificado-part-trigger">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">Visualizar Certificado</span>
+          </button>
+        </div>
+      </div>
+      <div class="bs-stepper-content">
+        <!-- your steps content here -->
+        <div id="datas-part" class="content" role="tabpanel" aria-labelledby="datas-part-trigger">
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Nome Completo</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Nome Completo" data-name="name" aria-label="inputs" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">CPF</span>
+              </div>
+              <input type="text" class="form-control" placeholder="CPF" data-name="cpf" aria-label="inputs" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Extra</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Extra" data-name="extra" aria-label="inputs" required>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Modelo</span>
+              </div>
+              <select id="models" class="form-control" data-name="model" aria-label="inputs" required>
+                <option selected>Selecione um modelo</option>
+              </select>
+            </div>
+            <hr>
+            <button type="button" onClick="Certificate('preview');" class="btn btn-outline-primary">Próximo</button>
+
+        </div>
+        <div id="certificado-part" class="content" role="tabpanel" aria-labelledby="certificado-part-trigger">
+          <div class="d-flex justify-content-center align-items-center"> 
+            <img id="image" class="imagePreview" />
+          </div>
+          <hr>
+          <button type="button" onClick="stepper.to(0);" class="btn btn-outline-erro">Voltar</button>
+          <button type="button" onClick="Certificate('save')" class="btn btn-outline-success">Registrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

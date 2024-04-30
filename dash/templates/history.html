@@ -1,0 +1,45 @@
+{% extends 'base_dash.html' %}
+{% load static %}
+
+{% block head %}
+  <script src="{% static 'js/history.js' %}"></script>
+  <title>Magma - Historico</title>
+{% endblock %}
+
+{% block body %}
+    <h3>Visualizar Certificados</h3>
+    <hr>
+    <br>
+    <div class="input-group mb-3">
+      <input id="inputSearch" type="text" style="height:auto;" class="form-control" placeholder="Digite Algo" {% if term %} value="{{term}}" {% endif %}>
+      <div class="input-group-append">
+        {% if term %}
+        <div class="input-group-append">
+          <a href="{% url 'history' %}" class="btn btn-danger" type="button">Remover Filtro</a>
+        </div>
+        {% endif %}
+          <button onclick="SearchResponse();" class="btn btn-secondary" type="button">Filtrar</button>
+      </div>
+    </div>
+    {% if not certificates %}
+      <label style="color: cornflowerblue;">Certificado não encontrado</label>
+    {% endif %}
+    <div class="d-flex flex-row flex-wrap" style="gap: 10px;">
+
+    {% for certificate in certificates %}
+
+      <div style="min-width: 300px">
+        <div id="certificate {{certificate.pk}}" class="card" style="padding: 5px;">
+          <div id="certificate {{certificate.pk}} child" class="card-body">
+            <h5 class="card-title">Modelo {{certificate.model.name}}</h5>
+            <p class="card-text">{{ certificate.render|safe }} </p>
+            <button onClick="RenderCertificate('certificate {{certificate.pk}}', true)" class="btn btn-primary">Visualizar</button>
+          </div>
+        </div>
+
+      </div>
+  
+    {% endfor %}
+    </div>
+    
+{% endblock %}
