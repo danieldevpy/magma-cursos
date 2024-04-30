@@ -38,3 +38,7 @@ def make_certificate(request):
             _identifier += value
         Certificate(identifier=_identifier, model=_model, data_json=str(data_json)).save()
         return JsonResponse({"ok": "ok"})
+    
+def validate(request, pk):
+    context = {'pk': pk}
+    return render(request, 'validate.html', context=context)

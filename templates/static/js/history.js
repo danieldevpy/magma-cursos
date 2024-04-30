@@ -11,13 +11,8 @@ async function getPdf(pk){
 
 }
 
-
-function showDiv(elemnt){
-
-}
-
 async function RenderCertificate(pk, show){
-    console.log(show);
+
     const id = pk.split(' ')[1]
     const divCertificate = document.getElementById(pk);
     const divChild = document.getElementById(pk+" child");
@@ -31,7 +26,6 @@ async function RenderCertificate(pk, show){
             const button_back = generates[pk]['button_back']
             button_back.style.display = "block";
         }else{
-      
             divChild.style.display = "block";
             const iframePdf = generates[pk]['iframe']
             iframePdf.style.display = "none";
@@ -39,9 +33,7 @@ async function RenderCertificate(pk, show){
             button_back.style.display = "none";
         }
 
-
     }else{
-  
         divChild.style.display = "none";
         const spinner = document.createElement('div');
         spinner.className = "spinner-border"
@@ -62,7 +54,6 @@ async function RenderCertificate(pk, show){
             RenderCertificate(pk, false);
         };
         
-
         divCertificate.appendChild(button_back);
         
         spinner.style.display = "none";
@@ -79,17 +70,12 @@ function SearchResponse(){
     window.location.href = `/dash/history/${value}`;
 }
 
-
-
-
-
 window.addEventListener("load", function (event) {
     var windowSize = window.innerWidth;
     if(windowSize < 800){
         width = window.innerWidth - 100;
     }
    
-
     document.getElementById("inputSearch").addEventListener("keydown", function(event) {
         // Verifique se a tecla pressionada é a tecla Enter (código 13)
         if (event.keyCode === 13) {
