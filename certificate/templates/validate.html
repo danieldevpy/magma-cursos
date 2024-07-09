@@ -4,9 +4,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Título da página</title>
+    <title>Validação Certificado {{ datas.0 }}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bs-stepper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/validate.css' %}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
@@ -16,9 +17,13 @@
   </head>
   <body>
     <label id="labelPK" style="display:none;">{{pk}}</label>
-    <div class="container" style="background-color:red;">
-        <div class="d-flex justify-content-center">
-            <iframe id="iframe"/>
+    <div class="container" style="height:100%; padding: 10px;">
+      <h1>
+        O curso Magma valida o certificado de <b>{{ datas.0 }}</b>
+          de CPF <b>{{ datas.1 }}</b>
+        </h1>
+        <div class="centerDiv">
+          <iframe id="iframe" style="width:100%; height: 100%;"> 
         </div>
     </div>
   </body>

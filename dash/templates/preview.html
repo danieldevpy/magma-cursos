@@ -41,13 +41,13 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">CPF</span>
               </div>
-              <input type="text" class="form-control" placeholder="CPF" data-name="cpf" aria-label="inputs" required>
+              <input id="cpf" type="text" class="form-control" placeholder="CPF" data-name="cpf" aria-label="inputs" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Extra</span>
+                <span class="input-group-text" id="basic-addon1">Data</span>
               </div>
-              <input type="text" class="form-control" placeholder="Extra" data-name="extra" aria-label="inputs" required>
+              <input id="date" type="text" class="form-control" placeholder="Data" data-name="extra" aria-label="inputs" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -66,10 +66,24 @@
             <img id="image" class="imagePreview" />
           </div>
           <hr>
-          <button type="button" onClick="stepper.to(0);" class="btn btn-outline-erro">Voltar</button>
-          <button type="button" onClick="Certificate('save')" class="btn btn-outline-success">Registrar</button>
+          <div id="previus">
+            <button type="button" onClick="stepper.to(0);" class="btn btn-outline-erro">Voltar</button>
+            <button type="button" onClick="Certificate('save')" class="btn btn-outline-success">Registrar</button>
+          </div>
+          <div id="after" style="display:none;">
+            <button type="button" onClick="window.location.reload();" class="btn btn-outline-erro">Fazer outro</button>
+            <a id="link" href="" class="btn btn-outline-success">Visualizar Certificado</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+  <script>
+    $('#cpf').mask('000.000.000-00');
+    $('#date').mask('00/00/0000');
+  </script>
 {% endblock %}

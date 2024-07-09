@@ -21,13 +21,15 @@ class CertificateController:
 
         for key, value in data_json.items():
             text = certificate.model.texts.filter(field=key).first()
+
             if text:
-                ImageController.design_text(front, value, text.get_pos_x(), text.pos_y, text.size, cls.color_default)
+                color = tuple(map(int, text.color.split(',')))
+                ImageController.design_text(front, value.upper(), text.get_pos_x(), text.pos_y, text.size, color)
 
         if qr_code:
             qr_code_img = Image.open(QrCodeController.make(certificate))
-            w = front.width - qr_code_img.width - 50
-            h = front.height - qr_code_img.height - 50
+            w = 40
+            h = 40
             ImageController.design_image(front, qr_code_img, w, h)
 
         img_bytes = ImageBytes(

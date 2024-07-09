@@ -6,6 +6,7 @@ class Text(models.Model):
     size = models.IntegerField()
     pos_x = models.CharField(max_length=200)
     pos_y = models.IntegerField()
+    color = models.CharField('Cor rgb ex 0,0,0', max_length=200, blank=True, null=True, default='0,0,0')
 
     def __str__(self) -> str:
         return self.field

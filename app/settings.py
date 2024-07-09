@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-vw518+g#v58obg_4+j++1ht6y2yh78b3^+rurs=0pu-55t!d66
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['http://magmacursosltda.com.br', 'https://magmacursosltda.com.br']
+CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://magmacursosltda.com.br', 'https://magmacursosltda.com.br']
 
 
 INSTALLED_APPS = [

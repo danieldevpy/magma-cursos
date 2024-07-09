@@ -40,5 +40,8 @@ def make_certificate(request):
         return JsonResponse({"ok": "ok"})
     
 def validate(request, pk):
-    context = {'pk': pk}
+    certificate = Certificate.objects.get(pk=pk)
+    data_json = certificate.get_json()
+    list_values = [data_json[key] for key in data_json]
+    context = {'pk': pk, 'datas': list_values}
     return render(request, 'validate.html', context=context)
