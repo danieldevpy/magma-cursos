@@ -9,7 +9,7 @@ import json
 
 def make_pdf(request, pk: int):
     certificate = Certificate.objects.filter(pk=pk).first()
-    img_bytes = CertificateController.make(certificate, 'JPEG', 50, True)
+    img_bytes = CertificateController.make(certificate, 'JPEG', 100, True)
     pdf_bytes = PDFController.make(img_bytes)
     response = HttpResponse(pdf_bytes, content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename="meu_pdf.pdf"'
