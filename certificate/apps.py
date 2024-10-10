@@ -11,8 +11,7 @@ def start_server():
     # Cria um novo loop de eventos para esta thread
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
-    start_server = websockets.serve(echo, "localhost", 6789)
-    
+    start_server = websockets.serve(echo, "0.0.0.0", 6789)
     loop.run_until_complete(start_server)
     loop.run_forever()
 
