@@ -5,7 +5,7 @@ class QrCodeController:
 
     @classmethod
     def make(cls, certificate):
-        url = f'https://magmacursosltda.com.br/certificate/validate/{certificate.pk}'
+        url = f'https://certificate.magmacursosltda.com.br/certificate/validate/{certificate.pk}'
         qr = qrcode.QRCode(
             version=1,
             error_correction=qrcode.constants.ERROR_CORRECT_L,
