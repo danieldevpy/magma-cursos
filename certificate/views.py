@@ -13,6 +13,7 @@ def make_pdf(request, pk: int):
     pdf_bytes = PDFController.make(img_bytes)
     response = HttpResponse(pdf_bytes, content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename="meu_pdf.pdf"'
+    response['Content-Length'] = str(len(pdf_bytes))  # Configura o cabeçalho Content-Length corretamente
     return response
 
 @csrf_exempt
