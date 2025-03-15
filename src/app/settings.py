@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from django.contrib.messages import constants
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-vw518+g#v58obg_4+j++1ht6y2yh78b3^+rurs=0pu-55t!d66'
@@ -56,8 +57,12 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv("MYSQL_DATABASE"),
+        'USER': os.getenv("MYSQL_USER"),
+        'PASSWORD': os.getenv("MYSQL_PASSWORD"),
+        'HOST': 'database-magma',
+        'PORT': os.getenv("PORT"),
     }
 }
 
