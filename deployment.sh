@@ -1,6 +1,4 @@
 echo "Iniciando deployment..."
-echo "Diretório atual: $(pwd)"
-echo "Usuário atual: $(whoami)"
 echo "Executando git pull..."
 git pull origin master
 if [ $? -ne 0 ]; then
