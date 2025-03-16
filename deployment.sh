@@ -1,6 +1,6 @@
 echo "Iniciando deployment..."
 echo "Diretório atual: $(pwd)"
-git config --global --add safe.directory "$(pwd)"
+echo "Usuário atual: $(whoami)"
 echo "Executando git pull..."
 git pull origin master
 if [ $? -ne 0 ]; then
