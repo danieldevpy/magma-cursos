@@ -8,5 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('model/', include('model.urls')),
     path('certificate/', include('certificate.urls')),
+    path('', include('dash.urls')),
     path('dash/', include('dash.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
