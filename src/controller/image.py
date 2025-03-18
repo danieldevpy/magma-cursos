@@ -11,7 +11,7 @@ class ImageController:
     @classmethod
     def design_text(cls, image, value, pos_x, pos_y, size, color):
         design = ImageDraw.Draw(image)
-        font = ImageFont.truetype('arial.ttf',  size)
+        font = ImageFont.truetype('src/arial.ttf',  size)
         text_size = design.textlength(value, font)
         center = (pos_x[0] + pos_x[1] - text_size) // 2
         design.text((center, pos_y), value, font=font, fill=color)
