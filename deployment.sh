@@ -5,6 +5,14 @@ if [ $? -ne 0 ]; then
     echo "Erro ao executar git pull"
     exit 1
 fi
+
+
+echo "Executando docker compose build"
+docker compose build
+if [ $? -ne 0 ]; then
+    echo "Erro ao executar docker compose build"
+    exit 1
+fi
 echo "Executando docker compose down..."
 docker compose down
 if [ $? -ne 0 ]; then
@@ -12,7 +20,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 echo "Executando docker compose up..."
-docker compose up -d --build
+docker compose up -d
 if [ $? -ne 0 ]; then
     echo "Erro ao executar docker compose up"
     exit 1
