@@ -9,7 +9,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Executando docker compose build"
-docker compose build
+docker compose build django-magma
 if [ $? -ne 0 ]; then
     echo "Erro ao executar docker compose build"
     exit 1

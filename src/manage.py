@@ -2,9 +2,10 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+import time
 
 def main():
+    time.sleep(3)
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
     try:
