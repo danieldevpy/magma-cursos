@@ -27,6 +27,8 @@ services:
       - database-magma
     env_file:
       - .env
+    volumes:
+      - ./src/media:/app/src/media
     networks:
       - magma-network
 
